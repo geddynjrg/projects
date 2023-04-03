@@ -1,0 +1,27 @@
+<script>
+function reverseOnlyLetters(s) {
+  let left = 0, right = s.length - 1;
+  let result = s.split('');
+  while (left < right) {
+    if (!/[a-zA-Z]/.test(result[left])) {
+      left++;
+    } else if (!/[a-zA-Z]/.test(result[right])) {
+      right--;
+    } else {
+      [result[left], result[right]] = [result[right], result[left]];
+      left++;
+      right--;
+    }
+  }
+  return result.join('');
+}
+
+let s = prompt("Enter a string:");
+
+// solution
+let output = reverseOnlyLetters(s);
+
+// print the output
+document.write(output);
+
+</script>
